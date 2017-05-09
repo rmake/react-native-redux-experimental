@@ -55,6 +55,8 @@
     "expo": "^16.0.0",
     "react": "16.0.0-alpha.6",
     "react-native": "^0.43.4",
-    "react-native-web": "^0.0.94"
+    "react-native-web": "^0.0.94",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0"
   }
 }
