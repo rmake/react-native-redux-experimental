@@ -1,19 +1,16 @@
 
-var initialState = () => ({
+export const initialState = () => ({
     nextTodoId: 1,
     todos: [],
 });
 
-const createTodo= (nextId, text) => ({
-    {
-        id: nextId,
-        text,
-        completed: false,
-    }
+export const createTodo = (nextId, text) => ({
+    id: nextId,
+    text,
+    completed: false,
 });
 
-
-const todos = (state = initialState(), action) => {
+export const todos = (state = initialState(), action) => {
 
     switch(action.type) {
         case "ADD_TODO":
@@ -21,7 +18,7 @@ const todos = (state = initialState(), action) => {
                 ...state,
                 nextTodoId: state.nextTodoId + 1,
                 todos: [
-                    state.todos...,
+                    ...state.todos,
                     createTodo(state.nextTodoId, action.text),
                 ]
             }
