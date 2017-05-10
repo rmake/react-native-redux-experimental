@@ -6,9 +6,9 @@ const TodoList = ({todos, onTodoClick}) => (
     <View>
         {
             todos.map((todo) => (
-                <View>
+                <View key={todo.id}>
                     <Text>
-                        todo.text
+                        - {todo.text}
                     </Text>
                 </View>
             ))
