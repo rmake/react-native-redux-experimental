@@ -35,7 +35,7 @@ var styles = StyleSheet.create({
     },
     textInput: {
         borderColor: '#777',
-        borderWidth: 1,
+        borderWidth: 2,
     }
 });
 

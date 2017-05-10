@@ -1,6 +1,7 @@
 import React from "react";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
+import { StyleSheet } from 'react-native';
 import Main from "./components/Main";
 import reducer from "./reducers"
 

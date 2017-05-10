@@ -21,6 +21,7 @@ export const toggleTodo = (todo, id) => {
 };
 
 export const todos = (state = initialState(), action) => {
+    console.log(action);
     switch(action.type) {
         case "ADD_TODO":
             return {
