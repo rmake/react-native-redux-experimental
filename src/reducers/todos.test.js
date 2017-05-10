@@ -95,5 +95,77 @@ describe("todo reducer", () => {
         });
     });
 
+    it("should handle TOGGLE_TODO", () => {
+        expect(
+            todos({
+                nextTodoId: 3,
+                todos: [
+                    {
+                        id: 1,
+                        text: "First Task",
+                        completed: false,
+                    },
+                    {
+                        id: 2,
+                        text: "Second Task",
+                        completed: false,
+                    },
+                ]
+            }, {
+                type: "TOGGLE_TODO",
+                id: 1,
+            })
+        ).toEqual({
+            nextTodoId: 3,
+            todos: [
+                {
+                    id: 1,
+                    text: "First Task",
+                    completed: true,
+                },
+                {
+                    id: 2,
+                    text: "Second Task",
+                    completed: false,
+                },
+            ]
+        });
+
+        expect(
+            todos({
+                nextTodoId: 3,
+                todos: [
+                    {
+                        id: 1,
+                        text: "First Task",
+                        completed: false,
+                    },
+                    {
+                        id: 2,
+                        text: "Second Task",
+                        completed: true,
+                    },
+                ]
+            }, {
+                type: "TOGGLE_TODO",
+                id: 2,
+            })
+        ).toEqual({
+            nextTodoId: 3,
+            todos: [
+                {
+                    id: 1,
+                    text: "First Task",
+                    completed: false,
+                },
+                {
+                    id: 2,
+                    text: "Second Task",
+                    completed: false,
+                },
+            ]
+        });
+    });
+
 
 });

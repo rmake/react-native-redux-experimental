@@ -10,8 +10,17 @@ export const createTodo = (nextId, text) => ({
     completed: false,
 });
 
-export const todos = (state = initialState(), action) => {
+export const toggleTodo = (todo, id) => {
+    if (todo.id != id) {
+        return todo;
+    }
+    return {
+        ...todo,
+        completed: !todo.completed,
+    };
+};
 
+export const todos = (state = initialState(), action) => {
     switch(action.type) {
         case "ADD_TODO":
             return {
@@ -21,7 +30,12 @@ export const todos = (state = initialState(), action) => {
                     ...state.todos,
                     createTodo(state.nextTodoId, action.text),
                 ]
-            }
+            };
+        case "TOGGLE_TODO":
+            return {
+                ...state,
+                todos: state.todos.map((todo) => (toggleTodo(todo, action.id))),
+            };
         default:
             return state;
     }
