@@ -49,7 +49,11 @@ export const todos = (state = initialState(), action) => {
             return {
                 ...state,
                 todos: [],
-            }
+            };
+        case "LOAD_TODOS_FULFILLED":
+            return {
+                ...action.todos
+            };
         default:
             return state;
     }
