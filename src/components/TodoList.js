@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { StyleSheet, View } from "react-native";
 import Todo from "./Todo";
 
-const TodoList = ({todos, onTodoClick}) => (
+const TodoList = ({todos, onTodoClick, onRemoveTodoClick}) => (
     <View style={styles.container}>
         {
             todos.map((todo) => {
@@ -11,6 +11,7 @@ const TodoList = ({todos, onTodoClick}) => (
                     key={todo.id}
                     todo={todo}
                     onTodoClick={() => (onTodoClick(todo.id))}
+                    onRemoveTodoClick={() => (onRemoveTodoClick(todo.id))}
                 />);
             })
         }
@@ -31,6 +32,7 @@ TodoList.propTypes = {
         completed: PropTypes.bool.isRequired,
     }).isRequired).isRequired,
     onTodoClick: PropTypes.func.isRequired,
+    onRemoveTodoClick: PropTypes.func.isRequired,
 };
 
 export default TodoList;

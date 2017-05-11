@@ -167,5 +167,61 @@ describe("todo reducer", () => {
         });
     });
 
+    it("should handle REMOVE_TODO", () => {
+        expect(
+            todos({
+                nextTodoId: 3,
+                todos: [
+                    {
+                        id: 1,
+                        text: "First Task",
+                        completed: false,
+                    },
+                    {
+                        id: 2,
+                        text: "Second Task",
+                        completed: false,
+                    },
+                ]
+            }, {
+                type: "REMOVE_TODO",
+                id: 1,
+            })
+        ).toEqual({
+            nextTodoId: 3,
+            todos: [
+                {
+                    id: 2,
+                    text: "Second Task",
+                    completed: false,
+                },
+            ]
+        });
+    });
+
+    it("should handle CLEAR_TODO", () => {
+        expect(
+            todos({
+                nextTodoId: 3,
+                todos: [
+                    {
+                        id: 1,
+                        text: "First Task",
+                        completed: false,
+                    },
+                    {
+                        id: 2,
+                        text: "Second Task",
+                        completed: false,
+                    },
+                ]
+            }, {
+                type: "CLEAR_TODO",
+            })
+        ).toEqual({
+            nextTodoId: 3,
+            todos: [],
+        });
+    });
 
 });

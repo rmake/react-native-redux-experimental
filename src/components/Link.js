@@ -26,6 +26,7 @@ let styles = StyleSheet.create({
         marginTop: 4,
         borderWidth: 2,
         borderRadius: 10,
+        margin: 2,
     },
     selected: {
         borderColor: '#7ad',

@@ -20,8 +20,11 @@ export const toggleTodo = (todo, id) => {
     };
 };
 
+export const removeTodo = (todos, id) => {
+    return todos.filter(todo => todo.id != id);
+}
+
 export const todos = (state = initialState(), action) => {
-    console.log(action);
     switch(action.type) {
         case "ADD_TODO":
             return {
@@ -37,6 +40,16 @@ export const todos = (state = initialState(), action) => {
                 ...state,
                 todos: state.todos.map((todo) => (toggleTodo(todo, action.id))),
             };
+        case "REMOVE_TODO":
+            return {
+                ...state,
+                todos: removeTodo(state.todos, action.id),
+            };
+        case "CLEAR_TODO":
+            return {
+                ...state,
+                todos: [],
+            }
         default:
             return state;
     }

@@ -24,12 +24,13 @@ const Footer = () => (
             </Text>
         </FilterLink>
     </View>
+
 );
 
 let styles = StyleSheet.create({
     container: {
-        flexDirection: "row",
-    }
+        flexDirection: "row"
+    },
 });
 
 export default Footer;

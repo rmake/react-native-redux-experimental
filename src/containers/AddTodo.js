@@ -31,7 +31,7 @@ AddTodo = connect()(AddTodo);
 
 var styles = StyleSheet.create({
     container: {
-
+        margin: 2,
     },
     textInput: {
         borderColor: '#777',
