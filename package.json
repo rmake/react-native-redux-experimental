@@ -34,7 +34,7 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch",
-    "test:nowatch": "cross-env CI=true node node_modules/jest/bin/jest.js",
+    "test:nowatch": "cross-env CI=true node node_modules/jest/bin/jest.js --setupTestFrameworkScriptFile=jest.setup.js",
     "web:build:vendor-dev:build": "cross-env NODE_ENV=development webpack --config web/vendor.webpack.config.js",
     "web:build:vendor-dev": "npm-run-all web:clean:vendor-dev web:build:vendor-dev:build web:clean:vendor-dev",
     "web:dev:server": "cross-env NODE_ENV=development webpack-dev-server -d --host 0.0.0.0 --port 3000 --config web/webpack.config.js --inline --hot --colors",
@@ -59,6 +59,7 @@
     "react-native-web": "^0.0.94",
     "react-redux": "^5.0.4",
     "redux": "^3.6.0",
-    "redux-observable": "^0.14.1"
+    "redux-observable": "^0.14.1",
+    "rxjs": "^5.4.0"
   }
 }

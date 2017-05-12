@@ -13,23 +13,40 @@ export const storage = (state = initialState(), action) => {
                 starting: false,
             };
         case "LOAD_TODOS":
-            console.log(action);
             return {
                 ...state,
                 loading: true,
             };
-        case "LOAD_TODOS_FULFILLED":
-            console.log(action);
+        case "LOAD_TODOS_SUCCESS":
             return {
                 ...state,
                 loading: false,
-            }
+            };
         case "LOAD_TODOS_FAILED":
-            console.log(action);
             return {
                 ...state,
                 loading: false,
-            }
+            };
+        case "LOAD_TODOS_NO_DATA":
+            return {
+                ...state,
+                loading: false,
+            };
+        case "SAVE_TODOS":
+            return {
+                ...state,
+                saving: true,
+            };
+        case "SAVE_TODOS_SUCCESS":
+            return {
+                ...state,
+                saving: false,
+            };
+        case "SAVE_TODOS_FAILED":
+            return {
+                ...state,
+                saving: false,
+            };
         default:
             return state;
     }

@@ -50,7 +50,7 @@ export const todos = (state = initialState(), action) => {
                 ...state,
                 todos: [],
             };
-        case "LOAD_TODOS_FULFILLED":
+        case "LOAD_TODOS_SUCCESS":
             return {
                 ...action.todos
             };
