@@ -44,9 +44,9 @@ module.exports = {
     {
       // Many react-native libraries do not compile their ES6 JS.
       test: /\.js$/,
-      include: /node_modules\/react-native-/,
+      //include: /node_modules\/react-native-/,
       // react-native-web is already compiled.
-      exclude: /node_modules\/react-native-web\//,
+      //exclude: /node_modules\/react-native-web\//,
       loader: 'babel-loader',
       query: { cacheDirectory: true },
     },

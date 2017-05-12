@@ -29,7 +29,8 @@ module.exports = {
   entry: {
     // Put react-native-web / react dependencies in here.
     'react': [
-      'react-native-web',
+      //'react-native-web',
+      'react-native-web/src',
     ],
     // Put any other other core libs in here. (immutable, redux, localforage, etc.)
     // 'core': [
@@ -49,7 +50,7 @@ module.exports = {
   plugins,
   resolve: {
     alias: {
-      'react-native': 'react-native-web',
+      'react-native': 'react-native-web/src',
     },
     extensions: ['.web.js', '.js', '.json'],
   },

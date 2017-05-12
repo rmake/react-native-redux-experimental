@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StyleSheet, View, TouchableOpacity} from "react-native";
+import { StyleSheet, View, TouchableOpacity, TouchableHighlight} from "react-native";
+import { Link } from "react-router-native";
 
-const Link = ({active, children, onClick }) => {
+const ThisLink = ({active, children, onClick, filter }) => {
     if (active) {
         return (
             <View style={[styles.button, styles.selected]}>
@@ -11,10 +12,15 @@ const Link = ({active, children, onClick }) => {
         );
     }
     return (
-        <TouchableOpacity style={[styles.button, styles.notSelected]} onPress={onClick}>
+        <TouchableHighlight style={[styles.button, styles.notSelected]}>
             {children}
-        </TouchableOpacity>
+        </TouchableHighlight>
     );
+    /*
+    <Link style={[styles.button, styles.notSelected]} to={`/${filter}`}>
+        {children}
+    </Link>
+    */
 };
 
 let styles = StyleSheet.create({
@@ -36,4 +42,4 @@ let styles = StyleSheet.create({
     },
 });
 
-export default Link;
+export default ThisLink;

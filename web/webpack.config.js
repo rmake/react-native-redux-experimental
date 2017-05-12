@@ -1,4 +1,5 @@
 /* eslint-disable */
+/*
 const enableOfflinePlugin = false
 
 const __DEV__ = process.env.NODE_ENV === 'development'
@@ -82,7 +83,7 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        exclude: /node_modules?!(\/react-router-native)/,
         // TODO: Set up react-hot-loader during development.
         loaders: [ 'babel-loader?cacheDirectory=true' ],
       },
@@ -97,8 +98,72 @@ module.exports = {
   plugins: plugins,
   resolve: {
     alias: {
-      'react-native': 'react-native-web'
+      'react-native': 'react-native-web/src'
     },
     extensions: [".web.js", ".js", ".json"]
   }
 };
+*/
+
+const enableOfflinePlugin = false
+
+const __DEV__ = process.env.NODE_ENV === 'development'
+const __OFFLINE__ = enableOfflinePlugin && !__DEV__
+
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const DEV = process.env.NODE_ENV !== 'production';
+
+const outputPath = path.join(__dirname, '/build/')
+
+var plugins = [
+  new webpack.DefinePlugin({
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    __DEV__,
+    __OFFLINE__,
+  }),
+  new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template: 'templates/index.ejs',
+  }),
+];
+
+if (__OFFLINE__) plugins.push(new OfflinePlugin())
+
+module.exports = {
+  devServer: {
+    contentBase: outputPath,
+  },
+  entry: {
+    app: path.join(__dirname, '../index.web.js')
+  },
+  output: {
+    path: outputPath,
+    filename: 'javascript/[name]-[hash:16].js',
+    publicPath: '/'
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        //exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: { cacheDirectory: true }
+      },
+      {
+        test: /\.(gif|jpe?g|png|svg)$/,
+        loader: 'url-loader',
+        query: { name: '[name].[ext]' }
+      }
+    ]
+  },
+  plugins: plugins,
+  resolve: {
+    alias: {
+      'react-native': 'react-native-web/src'
+    },
+    extensions: [".web.js", ".js", ".json"]
+  }
+}
