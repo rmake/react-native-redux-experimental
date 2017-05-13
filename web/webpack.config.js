@@ -1,5 +1,4 @@
 /* eslint-disable */
-/*
 const enableOfflinePlugin = false
 
 const __DEV__ = process.env.NODE_ENV === 'development'
@@ -47,7 +46,7 @@ const plugins = [
   }),
   new HtmlWebpackPlugin({
     filename: 'index.html',
-    template: 'web/templates/index.ejs',
+    template: './templates/index.ejs',
   }),
   new AddAssetHtmlPlugin(addAssetHtmlFiles),
 
@@ -77,7 +76,7 @@ module.exports = {
     contentBase: outputPath,
   },
   entry: {
-    app: path.join(__dirname, '../index.web.js')
+    app: path.join(__dirname, './index.web.js')
   },
   module: {
     loaders: [
@@ -103,8 +102,8 @@ module.exports = {
     extensions: [".web.js", ".js", ".json"]
   }
 };
-*/
 
+/*
 const enableOfflinePlugin = false
 
 const __DEV__ = process.env.NODE_ENV === 'development'
@@ -137,7 +136,7 @@ module.exports = {
     contentBase: outputPath,
   },
   entry: {
-    app: path.join(__dirname, '../index.web.js')
+    app: path.join(__dirname, './index.web.js')
   },
   output: {
     path: outputPath,
@@ -167,3 +166,4 @@ module.exports = {
     extensions: [".web.js", ".js", ".json"]
   }
 }
+*/
