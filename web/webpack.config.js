@@ -52,7 +52,7 @@ const plugins = [
 
   new CopyWebpackPlugin([
     // Workaround for AddAssetHtmlPlugin not copying compressed .gz files
-    { context: 'web/vendor/', from: '*.js.gz', to: 'javascript/vendor/' },
+    { context: './vendor/', from: '*.js.gz', to: 'javascript/vendor/' },
   ]),
 
   // Split out any remaining node modules
