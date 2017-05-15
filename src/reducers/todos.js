@@ -36,10 +36,13 @@ export const todos = (state = initialState(), action) => {
                 ]
             };
         case "TOGGLE_TODO":
-            return {
-                ...state,
-                todos: state.todos.map((todo) => (toggleTodo(todo, action.id))),
-            };
+            state.todos.forEach((todo, i) => state.todos[i] = toggleTodo(todo, action.id));
+            return state;
+
+            //return {
+            //    ...state,
+            //    todos: state.todos.map((todo) => (toggleTodo(todo, action.id))),
+            //};
         case "REMOVE_TODO":
             return {
                 ...state,
