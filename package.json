@@ -18,7 +18,10 @@
     "test:nowatch": "cross-env CI=true node node_modules/jest/bin/jest.js --setupTestFrameworkScriptFile=jest.setup.js"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-router-native)/"
+    ]
   },
   "dependencies": {
     "cross-env": "^5.0.0",

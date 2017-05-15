@@ -22,6 +22,7 @@ let AddTodo = ({ dispatch }) => {
                     }
                 }
             />
+
         </View>
     );
 };
