@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import Todo from "./Todo";
 
 const TodoList = ({todos, onTodoClick, onRemoveTodoClick}) => (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
         {
             todos.map((todo) => {
                 return(<Todo
@@ -15,7 +15,7 @@ const TodoList = ({todos, onTodoClick, onRemoveTodoClick}) => (
                 />);
             })
         }
-    </View>
+    </ScrollView>
 );
 
 let styles = StyleSheet.create({

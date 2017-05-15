@@ -17,14 +17,21 @@ class Main extends React.Component {
     render() {
         return (
             <NativeRouter>
-                <Switch>
-                    <Route path="/" component={TodoPage} />
-                    <Route path="/:filter" component={TodoPage}/>
-                </Switch>
+                <View style={styles.container}>
+                    <Route path="/:filter(\w*)" component={TodoPage}/>
+                </View>
             </NativeRouter>
         );
     }
 }
+
+let styles = StyleSheet.create({
+    container: {
+        flexGrow: 1,
+        flex: 1,
+        justifyContent: 'center',
+    },
+});
 
 const mapStateToProps = (state) => ({
     storage: state.storage

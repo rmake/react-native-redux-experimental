@@ -4,6 +4,7 @@ import { StyleSheet, View, TouchableOpacity, TouchableHighlight} from "react-nat
 import { Link } from "react-router-native";
 
 const ThisLink = ({active, children, onClick, filter }) => {
+
     if (active) {
         return (
             <View style={[styles.button, styles.selected]}>
@@ -11,16 +12,12 @@ const ThisLink = ({active, children, onClick, filter }) => {
             </View>
         );
     }
+
     return (
-        <TouchableHighlight style={[styles.button, styles.notSelected]}>
+        <Link style={[styles.button, styles.notSelected]} to={`/${filter}`}>
             {children}
-        </TouchableHighlight>
+        </Link>
     );
-    /*
-    <Link style={[styles.button, styles.notSelected]} to={`/${filter}`}>
-        {children}
-    </Link>
-    */
 };
 
 let styles = StyleSheet.create({

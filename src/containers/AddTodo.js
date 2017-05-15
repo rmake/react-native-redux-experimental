@@ -4,8 +4,7 @@ import { addTodo } from "../actions";
 import { StyleSheet, View, TextInput} from "react-native";
 
 let AddTodo = ({ dispatch }) => {
-    let input = null
-
+    let input = null;
     return (
         <View style={styles.container}>
             <TextInput

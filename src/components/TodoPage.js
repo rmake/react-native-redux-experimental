@@ -6,8 +6,7 @@ import Footer from "./Footer";
 import ClearTodo from "../containers/ClearTodo";
 import VisibleTodoList from "../containers/VisibleTodoList";
 
-const TodoPage = ({ params, storage }) => {
-    console.log(params);
+const TodoPage = ({ match , storage }) => {
     return (
         <View style={styles.container}>
             <View style={styles.titleContainer}>
