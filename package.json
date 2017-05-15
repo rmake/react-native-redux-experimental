@@ -34,20 +34,7 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "node node_modules/jest/bin/jest.js --watch",
-    "test:nowatch": "cross-env CI=true node node_modules/jest/bin/jest.js --setupTestFrameworkScriptFile=jest.setup.js",
-    "web:build:vendor-dev:build": "cross-env NODE_ENV=development webpack --config web/vendor.webpack.config.js",
-    "web:build:vendor-dev": "npm-run-all web:clean:vendor-dev web:build:vendor-dev:build web:clean:vendor-dev",
-    "web:dev:server": "cross-env NODE_ENV=development webpack-dev-server -d --host 0.0.0.0 --port 3000 --config web/webpack.config.js --inline --hot --colors",
-    "web": "npm-run-all web:build:vendor-dev web:dev:server",
-    "web:clean:vendor": "rimraf web/vendor",
-    "web:clean:vendor-dev": "rimraf web/build",
-    "web:clean": "npm-run-all web:clean:*",
-    "web:build:vendor:build": "cross-env NODE_ENV=production webpack --config web/vendor.webpack.config.js",
-    "web:build:vendor": "npm-run-all web:clean:vendor web:build:vendor:build",
-    "web:build:app:build": "cross-env NODE_ENV=production webpack --config web/webpack.config.js",
-    "web:build:app": "npm-run-all web:clean:vendor-dev web:build:app:build",
-    "web:build": "npm-run-all web:build:vendor web:build:app",
-    "web:serve": "http-serve -p 3001 --gzip true ./web/build"
+    "test:nowatch": "cross-env CI=true node node_modules/jest/bin/jest.js --setupTestFrameworkScriptFile=jest.setup.js"
   },
   "jest": {
     "preset": "jest-expo"

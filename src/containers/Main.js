@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Dimensions, Platform } from "react-native";
+import { StyleSheet, Text, View, Dimensions, Platform, ActivityIndicator } from "react-native";
 import { connect } from "react-redux";
 import { checkInitialTodos } from "../actions";
 import routes from "../routes"
@@ -15,6 +15,18 @@ class Main extends React.Component {
     }
 
     render() {
+
+        if (this.props.storage.loading) {
+            return (
+                <View style={styles.container}>
+                    <ActivityIndicator
+                        size="large"
+                        color="#0000ff"
+                        />
+                </View>
+            );
+        }
+
         return (
             <NativeRouter>
                 <View style={styles.container}>
@@ -31,6 +43,9 @@ let styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
     },
+    loading: {
+        height: 50,
+    }
 });
 
 const mapStateToProps = (state) => ({
