@@ -1,10 +1,9 @@
 import { connect } from "react-redux";
 import { setVisibilityFilter } from "../actions";
 import Link from "../components/Link";
-import { withRouter } from "react-router-native";
 
 const mapStateToProps = (state, ownProps) => ({
-    active: ownProps.filter === (ownProps.match.params.filter || "SHOW_ALL"),
+    active: ownProps.filter === state.visibilityFilter,
     filter: ownProps.filter,
 });
 
@@ -14,9 +13,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     }
 });
 
-const FilterLink = withRouter(connect(
+const FilterLink = connect(
     mapStateToProps,
     mapDispatchToProps,
-)(Link));
+)(Link);
 
 export default FilterLink;

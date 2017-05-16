@@ -2,8 +2,6 @@ import React from "react";
 import { StyleSheet, Text, View, Dimensions, Platform, ActivityIndicator } from "react-native";
 import { connect } from "react-redux";
 import { checkInitialTodos } from "../actions";
-import routes from "../routes"
-import { NativeRouter, Route, Link, Switch } from "react-router-native";
 import TodoPage from "../components/TodoPage";
 
 class Main extends React.Component {
@@ -28,11 +26,9 @@ class Main extends React.Component {
         }
 
         return (
-            <NativeRouter>
-                <View style={styles.container}>
-                    <Route path="/:filter(\w*)" component={TodoPage}/>
-                </View>
-            </NativeRouter>
+            <View style={styles.container}>
+                <TodoPage />
+            </View>
         );
     }
 }
