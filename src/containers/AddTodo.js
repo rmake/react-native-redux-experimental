@@ -7,21 +7,26 @@ let AddTodo = ({ dispatch }) => {
     let input = null;
     return (
         <View style={styles.container}>
-            <TextInput
-                ref={(node) => {
-                    input = node;
-                }}
-                style={styles.textInput}
-                onChangeText={(text) => {
-                    lastText = text;
-                }}
-                onSubmitEditing={
-                    (event) => {
-                        dispatch(addTodo(event.nativeEvent.text));
-                        input.clear();
+            {
+                /*
+                <TextInput
+                    ref={(node) => {
+                        input = node;
+                    }}
+                    style={styles.textInput}
+                    onChangeText={(text) => {
+                        lastText = text;
+                    }}
+                    onSubmitEditing={
+                        (event) => {
+                            dispatch(addTodo(event.nativeEvent.text));
+                            input.clear();
+                        }
                     }
-                }
-            />
+                />
+                */
+            }
+
 
         </View>
     );
