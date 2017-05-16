@@ -1,26 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { StyleSheet, View, Text, TouchableHighlight } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
 
 const Todo = ({todo, onTodoClick, onRemoveTodoClick}) => (
     <View style={styles.container}>
-        <TouchableHighlight style={styles.button} onPress={onTodoClick}>
-            <Text>
-                <Text>
-                    {'\u2022'}
-                </Text>
-                <Text style={todo.completed ? styles.completedText : null}>
-
-                    {todo.text}
-                </Text>
+        <TouchableOpacity style={styles.button} onPress={onTodoClick}>
+            <Text>{'\u2022'}</Text>
+            <Text style={todo.completed ? styles.completedText : null}>
+                 {todo.text}
             </Text>
-        </TouchableHighlight>
-        <TouchableHighlight style={styles.removeButton} onPress={onRemoveTodoClick}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.removeButton} onPress={onRemoveTodoClick}>
             <Text>
                  Delete
             </Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
     </View>
 );
 
