@@ -53,8 +53,3 @@ export const saveTodosFailed = (error) => ({
     type: "SAVE_TODOS_FAILED",
     error,
 });
-
-export const setVisibilityFilter = (filter) => ({
-    type: "SET_VISIBILITY_FILTER",
-    filter,
-});

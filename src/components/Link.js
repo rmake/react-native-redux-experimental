@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { StyleSheet, View, TouchableOpacity, TouchableHighlight} from "react-native";
 import { Link } from "react-router-native";
 
-const ThisLink = ({active, children, onClick, filter }) => {
+const ThisLink = ({active, children, filter }) => {
 
     if (active) {
         return (

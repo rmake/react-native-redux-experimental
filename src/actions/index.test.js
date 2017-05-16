@@ -9,8 +9,7 @@ import {
     loadTodosFailed,
     saveTodos,
     saveTodosSuccess,
-    saveTodosFailed,
-    setVisibilityFilter
+    saveTodosFailed
 } from ".";
 
 describe("todo action", () => {
@@ -98,12 +97,3 @@ describe("todo action", () => {
         });
     });
 });
-
-describe("visibility filter action", () => {
-    it("setVisibilityFilter should create SET_VISIBILITY_FILTER action", () => {
-        expect(setVisibilityFilter("SHOW_ALL")).toEqual({
-            type: "SET_VISIBILITY_FILTER",
-            filter: "SHOW_ALL",
-        });
-    });
-})
