@@ -5,9 +5,6 @@ This is Experimentation of followings.
 
 - create-react-native-app
 - react-native-web
-- redux
-- redux-observable
-- react-router-native
 
 # Useage
 
