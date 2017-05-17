@@ -12,7 +12,7 @@ const stateLocalStorage = store => next => action => {
         store.dispatch(loadTodos());
     }
     else if (action.type != "LOAD_TODOS_SUCCESS" &&
-        previousState.todos != currentState.todos) {
+        previousState.todos !== currentState.todos) {
         store.dispatch(saveTodos(currentState.todos));
     }
 
