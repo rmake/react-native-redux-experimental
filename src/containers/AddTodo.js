@@ -8,7 +8,6 @@ let AddTodo = ({ dispatch }) => {
     return (
         <View style={styles.container}>
             {
-                /*
                 <TextInput
                     ref={(node) => {
                         input = node;
@@ -24,10 +23,7 @@ let AddTodo = ({ dispatch }) => {
                         }
                     }
                 />
-                */
             }
-
-
         </View>
     );
 };
