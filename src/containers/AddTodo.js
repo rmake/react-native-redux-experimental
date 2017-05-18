@@ -13,9 +13,6 @@ let AddTodo = ({ dispatch }) => {
                         input = node;
                     }}
                     style={styles.textInput}
-                    onChangeText={(text) => {
-                        lastText = text;
-                    }}
                     onSubmitEditing={
                         (event) => {
                             dispatch(addTodo(event.nativeEvent.text));
