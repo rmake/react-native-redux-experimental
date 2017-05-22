@@ -1,4 +1,5 @@
-import {todos, initialState} from "./todos"
+import {todos, initialState} from "./todos";
+import TodosModel from "../models/TodosModel";
 
 describe("todo reducer", () => {
     it("should handle initial state", () => {
@@ -12,7 +13,7 @@ describe("todo reducer", () => {
             todos(initialState(), {
                 type: "ADD_TODO",
                 text: "First Task",
-            })
+            }).toJS()
         ).toEqual({
             nextTodoId: 2,
             todos: [
@@ -25,7 +26,7 @@ describe("todo reducer", () => {
         });
 
         expect(
-            todos({
+            todos(TodosModel.create({
                 nextTodoId: 2,
                 todos: [
                     {
@@ -34,10 +35,10 @@ describe("todo reducer", () => {
                         completed: false,
                     }
                 ]
-            }, {
+            }), {
                 type: "ADD_TODO",
                 text: "Second Task",
-            })
+            }).toJS()
         ).toEqual({
             nextTodoId: 3,
             todos: [
@@ -54,8 +55,9 @@ describe("todo reducer", () => {
             ]
         });
 
+
         expect(
-            todos({
+            todos(TodosModel.create({
                 nextTodoId: 3,
                 todos: [
                     {
@@ -69,10 +71,10 @@ describe("todo reducer", () => {
                         completed: false,
                     },
                 ]
-            }, {
+            }), {
                 type: "ADD_TODO",
                 text: "Third Task",
-            })
+            }).toJS()
         ).toEqual({
             nextTodoId: 4,
             todos: [
@@ -97,7 +99,7 @@ describe("todo reducer", () => {
 
     it("should handle TOGGLE_TODO", () => {
         expect(
-            todos({
+            todos(TodosModel.create({
                 nextTodoId: 3,
                 todos: [
                     {
@@ -111,10 +113,10 @@ describe("todo reducer", () => {
                         completed: false,
                     },
                 ]
-            }, {
+            }), {
                 type: "TOGGLE_TODO",
                 id: 1,
-            })
+            }).toJS()
         ).toEqual({
             nextTodoId: 3,
             todos: [
@@ -132,7 +134,7 @@ describe("todo reducer", () => {
         });
 
         expect(
-            todos({
+            todos(TodosModel.create({
                 nextTodoId: 3,
                 todos: [
                     {
@@ -146,10 +148,10 @@ describe("todo reducer", () => {
                         completed: true,
                     },
                 ]
-            }, {
+            }), {
                 type: "TOGGLE_TODO",
                 id: 2,
-            })
+            }).toJS()
         ).toEqual({
             nextTodoId: 3,
             todos: [
@@ -169,7 +171,7 @@ describe("todo reducer", () => {
 
     it("should handle REMOVE_TODO", () => {
         expect(
-            todos({
+            todos(TodosModel.create({
                 nextTodoId: 3,
                 todos: [
                     {
@@ -183,10 +185,10 @@ describe("todo reducer", () => {
                         completed: false,
                     },
                 ]
-            }, {
+            }), {
                 type: "REMOVE_TODO",
                 id: 1,
-            })
+            }).toJS()
         ).toEqual({
             nextTodoId: 3,
             todos: [
@@ -201,7 +203,7 @@ describe("todo reducer", () => {
 
     it("should handle CLEAR_TODO", () => {
         expect(
-            todos({
+            todos(TodosModel.create({
                 nextTodoId: 3,
                 todos: [
                     {
@@ -215,9 +217,9 @@ describe("todo reducer", () => {
                         completed: false,
                     },
                 ]
-            }, {
+            }), {
                 type: "CLEAR_TODO",
-            })
+            }).toJS()
         ).toEqual({
             nextTodoId: 3,
             todos: [],

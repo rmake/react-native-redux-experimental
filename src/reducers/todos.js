@@ -1,14 +1,9 @@
+import TodosModel from "../models/TodosModel";
+import TodoModel from "../models/TodoModel";
+import { List } from "immutable";
 
-export const initialState = () => ({
-    nextTodoId: 1,
-    todos: [],
-});
+export const initialState = () => (new TodosModel());
 
-export const createTodo = (nextId, text) => ({
-    id: nextId,
-    text,
-    completed: false,
-});
 
 export const toggleTodo = (todo, id) => {
     if (todo.id != id) {
@@ -25,35 +20,20 @@ export const removeTodo = (todos, id) => {
 }
 
 export const todos = (state = initialState(), action) => {
+
     switch(action.type) {
         case "ADD_TODO":
-            return {
-                ...state,
-                nextTodoId: state.nextTodoId + 1,
-                todos: [
-                    ...state.todos,
-                    createTodo(state.nextTodoId, action.text),
-                ]
-            };
+            return state.add(action.text);
         case "TOGGLE_TODO":
-            return {
-                ...state,
-                todos: state.todos.map((todo) => (toggleTodo(todo, action.id))),
-            };
+            return state.set("todos",
+                state.todos.map((todo) => (todo.toggle(action.id))));
         case "REMOVE_TODO":
-            return {
-                ...state,
-                todos: removeTodo(state.todos, action.id),
-            };
+            return state.set("todos",
+                removeTodo(state.todos, action.id));
         case "CLEAR_TODO":
-            return {
-                ...state,
-                todos: [],
-            };
+            return state.set("todos", []);
         case "LOAD_TODOS_SUCCESS":
-            return {
-                ...action.todos
-            };
+            return TodosModel.create(action.todos);
         default:
             return state;
     }

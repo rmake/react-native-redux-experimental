@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { StyleSheet, View, ScrollView } from "react-native";
 import Todo from "./Todo";
+import { List } from "immutable";
 
 const TodoList = ({todos, onTodoClick, onRemoveTodoClick}) => (
     <ScrollView style={styles.container}>
@@ -26,11 +27,7 @@ let styles = StyleSheet.create({
 });
 
 TodoList.propTypes = {
-    todos: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        text: PropTypes.string.isRequired,
-        completed: PropTypes.bool.isRequired,
-    }).isRequired).isRequired,
+    todos: PropTypes.instanceOf(List),
     onTodoClick: PropTypes.func.isRequired,
     onRemoveTodoClick: PropTypes.func.isRequired,
 };

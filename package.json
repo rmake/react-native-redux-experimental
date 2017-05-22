@@ -27,6 +27,7 @@
   "dependencies": {
     "cross-env": "^5.0.0",
     "expo": "^16.0.0",
+    "immutable": "^3.8.1",
     "react": "16.0.0-alpha.6",
     "react-native": "^0.43.4",
     "react-redux": "^5.0.4",
